@@ -28,7 +28,7 @@ app.include_router(auth.router)
 def root():
     return {
         "xabar": "Blog API",
-        "version": "yusuf yahshi bola",
+        "version": "yusuf",
         "environment": settings.environment
     }
 
