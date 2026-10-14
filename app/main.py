@@ -28,7 +28,7 @@ app.include_router(auth.router)
 def root():
     return {
         "xabar": "Fast API",
-        "version": "1.1.0",
+        "version": "salommm",
         "environment": settings.environment
     }
 
