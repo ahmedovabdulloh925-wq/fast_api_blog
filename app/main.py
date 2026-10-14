@@ -27,8 +27,8 @@ app.include_router(auth.router)
 @app.get("/")
 def root():
     return {
-        "xabar": "Blog API",
-        "version": "1.0.0",
+        "xabar": "Fast API",
+        "version": "1.1.0",
         "environment": settings.environment
     }
 
