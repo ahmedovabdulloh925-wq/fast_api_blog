@@ -8,20 +8,13 @@ class PostBase(BaseModel):
     title: str              # post title
     content: str            # post content
     published: bool = True  # default = True
+    rating: Optional[int] = None
 
 class PostCreate(PostBase):
     pass  # used when creating a post (same fields as base)
 
 class PostUpdate(PostBase):
     pass  # used when updating a post (same fields)
-
-class PostResponse(PostBase):
-    id: int                 # comes from DB
-    created_at: datetime    # timestamp from DB
-    owner_id: Optional[int] = None  # may be None
-
-    class Config:
-        from_attributes = True  # allows reading from ORM (DB model)
 
 # ─── USER SCHEMAS ─────────────────────────────
 
@@ -62,21 +55,6 @@ class PostResponse(PostBase):
     created_at: datetime
     owner_id: Optional[int] = None
     owner: Optional[OwnerInfo] = None   # ← YANGI
-
-    class Config:
-        from_attributes = True
-
-class PostBase(BaseModel):
-    title: str
-    content: str
-    published: bool = True
-    rating: Optional[int] = None    # ← YANGI
-
-class PostResponse(PostBase):
-    id: int
-    created_at: datetime
-    owner_id: Optional[int] = None
-    owner: Optional[OwnerInfo] = None
 
     class Config:
         from_attributes = True

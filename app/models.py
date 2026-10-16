@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean, Text, ForeignKey, TIMESTAMP
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, synonym
 from sqlalchemy.sql import func
 from .database import Base
 
@@ -9,6 +9,7 @@ class Post(Base):
     id = Column(Integer, primary_key=True, nullable=False)
     title = Column(String(255), nullable=False)
     body = Column(Text, nullable=False)
+    content = synonym("body")
     published = Column(Boolean, server_default="TRUE", nullable=False)
     created_at = Column(
         TIMESTAMP(timezone=True),
